@@ -13,7 +13,9 @@ consumer({
   interval: 2000
 }).consume(function(job, complete) {
   ...
-  complete(null);
+  //Do worker stuff here
+  ...
+  complete(null, job.id);
 });
 
 ```
@@ -49,7 +51,7 @@ This is where you can handle your worker processing, the consume method takes a 
     }
   * complete - this is a callback method that takes the following parameters:
     - error - if no error then pass `null`
-    - body - in this param you can pass a string or object and it will simply get logged to the stdout logger.
+    - id - in this param is the job id, so that the complete task can tell cloudq I am finished.
 
 ---
 
