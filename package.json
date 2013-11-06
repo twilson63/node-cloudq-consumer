@@ -1,0 +1,37 @@
+{
+  "name": "node-cloudq-consumer",
+  "version": "0.0.0",
+  "description": "A CloudQ Consumer Api to make it easier to implement NodeWorkers",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/twilson63/node-cloudq-consumer.git"
+  },
+  "keywords": [
+    "CloudQ",
+    "Consumer",
+    "API",
+    "Job",
+    "Queue",
+    "Workers"
+  ],
+  "author": "Tom Wilson",
+  "license": "MIT",
+  "gitHead": "95877a07a18dd07d74b24bf61918c3c0c41b8422",
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "mocha": "~1.14.0",
+    "expect.js": "~0.2.0"
+  },
+  "dependencies": {
+    "request": "~2.27.0",
+    "bunyan": "~0.22.0",
+    "underscore": "~1.5.2"
+  }
+}
