@@ -10,9 +10,10 @@ function Consumer(config) {
   this.config = {
     server: 'http://localhost:3000',
     queue: 'default',
-    interval: DEFAULT_INTEVAL
+    interval: DEFAULT_INTERVAL
   };
   _.extend(this.config, config);
+  console.log(this.config);
 }
 
 Consumer.prototype.log = log;
@@ -32,14 +33,16 @@ Consumer.prototype.consume = function(fn) {
   }
 
   function check() {
-    request.get(queueUrl, function(e,r,b) { 
+    console.log('called check');
+    request.get(queueUrl, { json: true }, function(e,r,b) { 
       if (e) { log.error(e); return; }
       if (b.ok) { log.info(b); return fn(b, complete); }
       setTimeout(check, self.config.interval);
     });
   }
+  check();
   // check for job via every interval
-  setTimeout(check, self.config.interval);
+  //setTimeout(check, self.config.interval);
 };
 
 module.exports = function(config) {
