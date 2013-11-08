@@ -56,6 +56,7 @@ This is where you can handle your worker processing, the consume method takes a 
   * complete - this is a callback method that takes the following parameters:
     - error - if no error then pass `null`
     - id - in this param is the job id, so that the complete task can tell cloudq I am finished.
+    - [cb] - optional callback incase you want to do additional work after the complete function has been completed...
   * [log] - optional parameter to the bunyan logging system in case you want to
 log info on your worker
 

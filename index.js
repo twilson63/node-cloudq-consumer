@@ -29,7 +29,7 @@ Consumer.prototype.consume = function(fn) {
       if (e) { log.error(e); return; }
       log.info(b); 
       setTimeout(check, self.config.interval);
-      cb();
+      if (cb) { cb(); }
     });
   }
 
