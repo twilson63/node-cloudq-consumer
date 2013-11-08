@@ -1,8 +1,9 @@
 # CloudQ Consumer
 
-This module is a javascript api wrapper for consuming CloudQ Jobs.
-
 [![Build Status](https://secure.travis-ci.org/twilson63/node-cloudq-consumer.png)](http://travis-ci.org/twilson63/node-cloudq-consumer)
+
+
+This module is a javascript api wrapper for consuming CloudQ Jobs.
 
 ## example
 
