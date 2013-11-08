@@ -21,7 +21,7 @@ Consumer.prototype.log = log;
 Consumer.prototype.consume = function(fn) {
   var self = this; 
   var queueUrl = [self.config.server, self.config.queue].join('/');
-  function complete(err, id) {
+  function complete(err, id, cb) {
     if (err) { return log.error(err); }
     if (!id) { return log.error('Id not found!'); }
     // tell cloudq job is process and re-engage
@@ -29,20 +29,20 @@ Consumer.prototype.consume = function(fn) {
       if (e) { log.error(e); return; }
       log.info(b); 
       setTimeout(check, self.config.interval);
+      cb();
     });
   }
 
   function check() {
-    console.log('called check');
     request.get(queueUrl, { json: true }, function(e,r,b) { 
-      if (e) { log.error(e); return; }
-      if (b.ok) { log.info(b); return fn(b, complete); }
+      console.log(b);
+      if (e) { log.error(e); }
+      if (b && b.ok) { log.info(b); return fn(b, complete); }
       setTimeout(check, self.config.interval);
     });
   }
   check();
   // check for job via every interval
-  //setTimeout(check, self.config.interval);
 };
 
 module.exports = function(config) {

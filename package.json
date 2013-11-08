@@ -1,6 +1,6 @@
 {
   "name": "node-cloudq-consumer",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A CloudQ Consumer Api to make it easier to implement NodeWorkers",
   "main": "index.js",
   "directories": {
@@ -27,7 +27,8 @@
   "readmeFilename": "README.md",
   "devDependencies": {
     "mocha": "~1.14.0",
-    "expect.js": "~0.2.0"
+    "expect.js": "~0.2.0",
+    "nock": "~0.22.1"
   },
   "dependencies": {
     "request": "~2.27.0",
